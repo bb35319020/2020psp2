@@ -9,7 +9,7 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-
+    
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
     fname[strlen(fname)-1] = '\0';
