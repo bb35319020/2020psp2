@@ -1,3 +1,4 @@
+/*bb35319020京岡龍樹*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,8 +27,8 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        max_val*=p_stdnorm((val-MUA)/sigmaA);
-        min_val*=p_stdnorm((val-MUB)/sigmaB);
+        L1*=p_stdnorm((val-MUA)/sigmaA);
+        L2*=p_stdnorm((val-MUB)/sigmaB);
 
 
 
@@ -38,8 +39,8 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("L_A: %f\n",max_val);
-    printf("L_B: %f\n",min_val);
+    printf("L_A: %f\n",L1);
+    printf("L_B: %f\n",L2);
 
     return 0;
 
