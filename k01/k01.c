@@ -1,3 +1,4 @@
+/*bb35319020,京岡龍樹*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
