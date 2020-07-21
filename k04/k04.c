@@ -60,7 +60,7 @@ int main (void)
         date[i].ID=ID;
         i=i+1;
     }
-    
+
     printf("whici ID's do you want?:");
     scanf("%d",&ID);
     printf("---");
