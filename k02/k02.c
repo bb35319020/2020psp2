@@ -16,7 +16,7 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    double L1=1,L2=1,mua=MUA,mub=MUB,sigma_a=sigmaA,sigma_b=sigmaB;
+    double L1=1,L2=1;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
