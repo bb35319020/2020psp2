@@ -1,16 +1,17 @@
-/*bb35319020,京岡龍樹*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(double val,double ave,double n);
-extern double var_online(double val,double ave,double square_ave, double n);
+extern double ave_online(double val,double ave);
+extern double var_online(double val,double ave,double square_ave);
+
+double n=0;
 
 int main(void)
 {
     double val,ave=0,square_ave=0,average=0,variance=0,estvariance=0;
-    int n=1;
+    
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -28,12 +29,11 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-
-        average=ave_online(val,ave,n);
-        variance=var_online(val,ave,square_ave,n);
-        estvariance=var_online(val,ave,square_ave,n);
-        square_ave=ave_online(val*val,square_ave,n);
         n=n+1;
+        average=ave_online(val,ave);
+        variance=var_online(val,ave,square_ave);
+        estvariance=(n/(n-1))*variance;
+        square_ave=ave_online(val*val,square_ave); 
         ave=average;
     }
 
@@ -42,16 +42,16 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("average:%f\n",average);
+    printf("mean:%f\n",ave);
     printf("variance:%f\n",variance);
-    printf("est.average:%f\n",average);
-    printf("est.varianve:%f\n",estvariance);
+    printf("population mean(estimated):%f\n",average);
+    printf("population variance(estima):%f\n",estvariance);
     return 0;
 }
 
-double ave_online(double val,double ave, double n){
+double ave_online(double val,double ave){
     return((ave*(n-1)/n))+(val/n);
 }
-double var_online(double val,double ave,double square_ave,double n){
+double var_online(double val,double ave,double square_ave){
     return(((n-1)*square_ave/n)+(val*val/n))-((ave*((n-1)/n)+(val/n)))*((ave*((n-1)/n)+(val/n)));
 }

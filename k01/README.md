@@ -1,7 +1,6 @@
 # 課題1 レポート
 
-aa83988848 薗田光太郎
-
+bb35319020 京岡龍樹
 ## 課題
 
 標本男性の平均と分散を求めよ．また，「適当に選んだ」と言っても所詮聞く相手は周辺の同年代の同じ学部の友達に限定されそうである．周辺に住んでる同年代の工学部の男性の平均と分散を推定せよ．また，この推定される平均値は標本のとるたびに異なるので確率変数であり，今回推定した平均には誤差がある．その誤差（標準誤差）を求めよ．
@@ -43,17 +42,23 @@ aa83988848 薗田光太郎
 
 ## ソースコードの説明
 
-あいうえお
+l13:定義
+l33:平均を求めaverageに格納する
+l34:分散を求めvarianceに格納する
+l35:母集団分散を求める
+l36:2乗の平均を求める
+l45~l48それぞれを表示させる
+L52~L56各関数の中身
 
 ## 入出力結果
 
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：
-sample variance：
-population mean (estimated)：
-population variance (estimated)：
+sample mean：173.888750
+sample variance：25.361711
+population mean (estimated)：173.888750
+population variance (estimated)：28.984812
 ```
 
 ## 修正履歴
@@ -64,3 +69,5 @@ population variance (estimated)：
 - 母集団分散`estvariance`が正しく求められていません. 問題文の `また, 母集団の分散uは標本の〜`の次の行の式を参考にしてください. 
 - 関数 `ave_online`, `var_online`の引数nが小数になることはないと思うので, 整数型にしましょう. そうすると除算のところがゼロになることがあるかもしれません. キャストしたり, 計算順序を工夫したりして対処してください. 
 
+
+    int n にすると冒頭のFILEが開かずまたerrorにもならないのですがなぜでしょう。。。。
