@@ -14,13 +14,24 @@ extern double r_stdnorm(void);
 
 int main(int argc, char* argv[])
 {
-    int num_dummy=5;
-    double mu=170.8;
-    double sigma=5.43;
+    int num_dummy;
+    double mu;
+    double sigma;
     int i;
     double dummy;
 
-    sscanf(argv[3],"%lf",&num_dummy);
+    if(argc<4)
+    {
+        return 1;
+
+    }
+    else
+    {
+        return 0;
+    }
+    
+
+    sscanf(argv[3],"%d",&num_dummy);
     sscanf(argv[2],"%lf",&sigma);
     sscanf(argv[1],"%lf",&mu);
 
