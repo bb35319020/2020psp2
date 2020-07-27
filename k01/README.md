@@ -55,10 +55,10 @@ L52~L56各関数の中身
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：173.888750
-sample variance：25.361711
-population mean (estimated)：173.888750
-population variance (estimated)：28.984812
+sample mean：21.387500
+sample variance：:6788.597606
+population mean (estimated)：21.387500
+population variance (estimated)：6788.597606
 ```
 
 ## 修正履歴

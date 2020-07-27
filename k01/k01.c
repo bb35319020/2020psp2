@@ -6,12 +6,11 @@
 extern double ave_online(double val,double ave);
 extern double var_online(double val,double ave,double square_ave);
 
-double n=0;
+int n;
 
 int main(void)
 {
     double val,ave=0,square_ave=0,average=0,variance=0,estvariance=0;
-    
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -26,16 +25,18 @@ int main(void)
         fputs("File open error\n",stderr);
         exit(EXIT_FAILURE);
     }
+        n=1;
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        n=n+1;
+        
         average=ave_online(val,ave);
         variance=var_online(val,ave,square_ave);
-        estvariance=(n/(n-1))*variance;
         square_ave=ave_online(val*val,square_ave); 
         ave=average;
+        n=n+1;
     }
+        estvariance=(n/(n-1))*variance;
 
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
@@ -50,7 +51,7 @@ int main(void)
 }
 
 double ave_online(double val,double ave){
-    return((ave*(n-1)/n))+(val/n);
+    return(((n-1)/n)*ave)+(val/n);
 }
 double var_online(double val,double ave,double square_ave){
     return(((n-1)*square_ave/n)+(val*val/n))-((ave*((n-1)/n)+(val/n)))*((ave*((n-1)/n)+(val/n)));
