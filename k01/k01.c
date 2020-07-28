@@ -51,8 +51,8 @@ int main(void)
 }
 
 double ave_online(double val,double ave){
-    return(((n-1)/n)*ave)+(val/n);
+    return(n-1)*ave/n+val/n;
 }
 double var_online(double val,double ave,double square_ave){
-    return(((n-1)*square_ave/n)+(val*val/n))-((ave*((n-1)/n)+(val/n)))*((ave*((n-1)/n)+(val/n)));
+    return((n-1)*square_ave/n+val*val/n)-(ave*(n-1)/n+val/n)*(ave*(n-1)/n+val/n);
 }
