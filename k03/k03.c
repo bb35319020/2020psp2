@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     int i;
     double dummy;
 
-    if(argc<4)
+    /*if(argc<4)
     {
         return 1;
 
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     {
         return 0;
     }
-    
+    */
 
     sscanf(argv[3],"%d",&num_dummy);
     sscanf(argv[2],"%lf",&sigma);
