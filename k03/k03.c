@@ -19,16 +19,13 @@ int main(int argc, char* argv[])
     double sigma;
     int i;
     double dummy;
-
-    /*if(argc<4)
+    
+    if(argc<4)
     {
+        printf("引数が不足しています\n");
         return 1;
     }
-    else
-    {
-        return 0;
-    }
-    */
+    
 
     sscanf(argv[3],"%d",&num_dummy);
     sscanf(argv[2],"%lf",&sigma);
