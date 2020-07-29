@@ -36,7 +36,7 @@ int main(void)
         ave=average;
         n=n+1;
     }
-        estvariance=(n/(n-1))*variance;
+        estvariance=n*variance/(n-1);
 
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
