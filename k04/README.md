@@ -61,3 +61,10 @@ No data
 - l.80 &をつけると番地を指し示してしまいます. 
 - heights, gender 変数は使用していないので消しましょう
 - 上記の点を修正しても, 実行結果は正しくありませんでした. 
+
+[comment #20200729 sonoda]
+- TAの指摘した点を修正すること．
+- heights.csvからfgetsでbuf1に1行コピーして，そのbuf1からsscanfでgenderとheightsを読み取るところ．
+  - 察するに1回目のsscanfでgender, 2回目のsscanfでheightsを読み取りたいようですが，残念ながら，1回目の読み取りのあとにその続きから読んでくれるわけではなく，第1引数（アドレス）から読み始めます．
+  - scanfの場合は前回の続きからですが，sscanfはそこが少し違います．
+  - 1度で読み取らないといけません．`sscanf(buf1, "%d, %lf", &data[i].gender, &data[i].heights);`にしないといけません．
