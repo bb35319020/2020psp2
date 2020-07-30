@@ -3,11 +3,12 @@
 #include<string.h>
 #include<math.h>
 
-struct DATE{
+struct DATA{
     int gender;
     double heights;
     double ID;
-}
+};
+
 int main (void)
 {
     int i=0,n=0,ID,gender;
@@ -18,7 +19,7 @@ int main (void)
     char buf2[256];
     FILE *fp1;
     FILE *fp2;
-    struct DATE date[14]
+    struct DATA data[14];
 
     printf("input the filename of sample: ");
     fgets(fname1,sizeof(fname1),stdin);
@@ -43,33 +44,29 @@ int main (void)
     }
 
     while(fgets(buf1,sizeof(buf1),fp1)!=NULL){
-        sscan(buf1,"%d",&date[i].gender);
-        sscan(buf1,"%.lf",&date[i].heights);
+        sscanf(buf1,"%d","%f",&data[i].gender,&data[i].heights);
         i=i+1;
     }
-
-    if(fclose(fp1)==EOF)
-    
+    if(fclose(fp1)==EOF){
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
     }
     i=0;
     
-    while(fgets(buf2,sizeof(buf2),fp2)!=NULL{
-        sscan(buf2,"%d",&date[i].ID);
-        date[i].ID=ID;
+    while(fgets(buf2,sizeof(buf2),fp2)!=NULL){
+        sscanf(buf2,"%d",&data[i].ID);
         i=i+1;
     }
 
-    printf("whici ID's do you want?:");
+    printf("which ID's do you want?:");
     scanf("%d",&ID);
     printf("---");
-    for(i=0;i<15,i++)
+    for(i=0;i<15;i++)
     {
-        if(date[i].ID==ID)
+        if(data[i].ID==ID)
         {
-            printf("ID:%lf\n",date[i].date);
-            if(date[i].gender==1)
+            printf("ID:%lf\n",data);
+            if(data[i].gender==1)
             {
                 printf("male\n");
             }
@@ -77,12 +74,12 @@ int main (void)
             {
                 printf("female\n");
             }
-        printf("heights:,%.lf\n",&date[i].heights);
+        printf("heights:%lf\n",data[i].heights);
         n=n+1;
         }
         if(n==0)
         {
-            printf("No date");
+            printf("No data\n");
         }
     }
 
