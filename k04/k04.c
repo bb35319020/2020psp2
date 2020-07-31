@@ -6,13 +6,12 @@
 struct DATA{
     int gender;
     double heights;
-    double ID;
+    int ID;
 };
 
 int main (void)
 {
-    int i=0,n=0,ID,gender;
-    double heights;
+    int i=0,n=0,ID;
     char fname1[FILENAME_MAX];
     char fname2[FILENAME_MAX];
     char buf1[256];
@@ -44,7 +43,7 @@ int main (void)
     }
 
     while(fgets(buf1,sizeof(buf1),fp1)!=NULL){
-        sscanf(buf1,"%d","%f",&data[i].gender,&data[i].heights);
+        sscanf(buf1,"%d,%lf",&data[i].gender,&data[i].heights);
         i=i+1;
     }
     if(fclose(fp1)==EOF){
@@ -60,28 +59,27 @@ int main (void)
 
     printf("which ID's do you want?:");
     scanf("%d",&ID);
-    printf("---");
+    printf("---\n");
     for(i=0;i<15;i++)
     {
         if(data[i].ID==ID)
         {
-            printf("ID:%lf\n",data);
+            printf("ID:%d\n",data[i+1].ID);
             if(data[i].gender==1)
             {
-                printf("male\n");
+                printf("gender:male\n");
             }
             else
             {
-                printf("female\n");
+                printf("gender:female\n");
             }
-        printf("heights:%lf\n",data[i].heights);
+        printf("heights:%.1lf\n",data[i+1].heights);
         n=n+1;
         }
+    }
         if(n==0)
         {
             printf("No data\n");
         }
-    }
-
 return 0;
  }
