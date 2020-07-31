@@ -78,3 +78,4 @@ data -> data[i].ID
 [comment #20200731_2]
 - 今のプログラムでは最後の人(45318088)を調べたとき, 正しいIDが表示されません. heights.csvの1行目は有効なデータでないため, 2行目からdataに入れるようにしましょう.  
     - data[i].genderやdata[i].heights に値を入れていくwhile文に入る前に, 1度 fgets をすれば, while文の中では2行目のデータからdata[i]に入れていけると思います. 
+    
