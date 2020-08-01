@@ -41,7 +41,7 @@ int main (void)
         fputs("File open error\n",stdin);
         exit(EXIT_FAILURE);
     }
-
+    i=-1;
     while(fgets(buf1,sizeof(buf1),fp1)!=NULL){
         sscanf(buf1,"%d,%lf",&data[i].gender,&data[i].heights);
         i=i+1;
@@ -64,7 +64,7 @@ int main (void)
     {
         if(data[i].ID==ID)
         {
-            printf("ID:%d\n",data[i+1].ID);
+            printf("ID:%d\n",data[i].ID);
             if(data[i].gender==1)
             {
                 printf("gender:male\n");
@@ -73,7 +73,7 @@ int main (void)
             {
                 printf("gender:female\n");
             }
-        printf("heights:%.1lf\n",data[i+1].heights);
+        printf("heights:%.1lf\n",data[i].heights);
         n=n+1;
         }
     }
