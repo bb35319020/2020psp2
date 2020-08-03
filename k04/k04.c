@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<math.h>
-
+#define N 14
 struct DATA{
     int gender;
     double heights;
@@ -18,7 +18,7 @@ int main (void)
     char buf2[256];
     FILE *fp1;
     FILE *fp2;
-    struct DATA data[14];
+    struct DATA data[N];
 
     printf("input the filename of sample: ");
     fgets(fname1,sizeof(fname1),stdin);
@@ -60,7 +60,7 @@ int main (void)
     printf("which ID's do you want?:");
     scanf("%d",&ID);
     printf("---\n");
-    for(i=0;i<15;i++)
+    for(i=0;i<N;i++)
     {
         if(data[i].ID==ID)
         {
@@ -83,3 +83,4 @@ int main (void)
         }
 return 0;
  }
+ 

@@ -34,7 +34,7 @@ the filename of sample :../sample/IDs.csv
 which ID's do you want?:45313125
 ---
 ID:45323002
-gender:male
+gender:female
 heights:152.4
 ```
 
