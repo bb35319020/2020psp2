@@ -33,7 +33,7 @@ input the filename of sample: ../sample/IDs.csv
 the filename of sample :../sample/IDs.csv
 which ID's do you want?:45313125
 ---
-ID:45323002
+ID:45313125
 gender:female
 heights:152.4
 ```
