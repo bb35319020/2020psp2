@@ -101,3 +101,6 @@ data -> data[i].ID
   for(i=0;i<N;i++)
   ```
   などとします．
+
+[comment #20200806 sonoda]
+- OKです．課題4完了．
